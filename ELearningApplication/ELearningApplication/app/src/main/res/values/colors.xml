@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_A1000">#FF80AB</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="teal_800">#558B2F</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="dark">#D58936</color>
+    <color name="darker">#69140E</color>
+    <color name="multimediabg">#E57373</color>
+    <color name="learningmaterialbg">#81C784</color>
+    <color name="studentassesmentbg">#4DB6AC</color>
+    <color name="studentprogressbg">#BA68C8</color>
+    <color name="textcolor1">#69140E</color>
+    <color name="textcolor2">#D58936</color>
+</resources>

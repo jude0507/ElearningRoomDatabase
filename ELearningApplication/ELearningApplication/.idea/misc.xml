@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable-v24/ic_user_svgrepo_com.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/background.xml" value="0.135" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/border.xml" value="0.1565" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/custom_button.xml" value="0.135" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/custom_edittext.xml" value="0.143" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_account__1_.xml" value="0.139" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_account_circle.xml" value="0.135" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_books.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_books_svgrepo_com.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_cam.xml" value="0.1535" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_close.xml" value="0.139" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_edit.xml" value="0.139" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_four_svgrepo_com.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_knowledge_book_education_learning_books_svgrepo_com.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_lock.xml" value="0.135" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_menu.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_multimedia_player_svgrepo_com.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_name_card.xml" value="0.139" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_okcupid.xml" value="0.127" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_one_key_svgrepo_com.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_one_svgrepo_com.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_password.xml" value="0.139" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_power_svgrepo_com.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_previousarrow.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_profit.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_rename.xml" value="0.139" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_test.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_test_svgrepo_com.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_three_svgrepo_com.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_two_svgrepo_com.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_user.xml" value="0.135" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_user_circle.xml" value="0.1565" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/drawable/ic_video_conference.xml" value="0.122" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_learning_materials.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_multimedia.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_my_recycler_view.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_mytoolbar.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_pdfview.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_pdfview_q2.xml" value="0.18885869565217392" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_pdfview_q3.xml" value="0.1598731884057971" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_pdfview_q4.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_quarter_four.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_quarter_one.xml" value="0.21" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_quarter_three.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_quarter_two.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_recycler_view.xml" value="0.1" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_recycler_view_q2.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_registration.xml" value="0.21" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_student_assessment.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/activity_student_progress.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/camera_gallery_dialog.xml" value="0.25" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/greetingdialog.xml" value="0.22" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/myrecyclerview.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/myrecyclerviewrow.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/mytoolbar.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Christian Villanueva/AndroidStudioProjects/ELearningApplication/app/src/main/res/layout/navigation_drawer_menu.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
