@@ -20,6 +20,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.elearningapplication.View.StudentAssessment;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -39,7 +41,7 @@ public class QuizActivity extends AppCompatActivity {
     List<Questionnaire> questionnaireList;
     Questionnaire currentQuestion;
     private int questionCounter = 0, questionTotalCount;
-    private ColorStateList textColorofButtons;
+    ColorStateList textColorofButtons;
     private Handler handler = new Handler();
     private int correctAns = 0, wrongAns = 0, score = 0;
     private static final long COUNTDOWN_IN_MILLIS = 30000;
@@ -349,5 +351,10 @@ public class QuizActivity extends AppCompatActivity {
         if (questionCounter < questionTotalCount) {
             nextBtn.setText("Confirm and Finish");
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, StudentAssessment.class));
     }
 }

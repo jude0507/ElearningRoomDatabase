@@ -17,4 +17,5 @@
     <color name="studentprogressbg">#BA68C8</color>
     <color name="textcolor1">#69140E</color>
     <color name="textcolor2">#D58936</color>
+    <color name="transparent">#0DD58936</color>
 </resources>

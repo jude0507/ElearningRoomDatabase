@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.elearningapplication.Model.UsersModel;
+import com.example.elearningapplication.QuizActivity;
 import com.example.elearningapplication.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
@@ -96,5 +97,10 @@ public class StudentAssessment extends AppCompatActivity {
         super.onPause();
 
         QuarterOne.closeDrawer(drawerLayout);
+    }
+
+    public void quiz(View view) {
+        startActivity(new Intent(this, QuizActivity.class));
+        finish();
     }
 }
