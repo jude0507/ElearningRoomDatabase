@@ -26,7 +26,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="45dp"
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
@@ -35,12 +35,6 @@
                 app:cardCornerRadius="30dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp">
-<!--                <ImageView-->
-<!--                    android:id="@+id/profile"-->
-<!--                    android:onClick="clickprofile"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:src="@drawable/ic_user_circle"/>-->
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile"
@@ -52,8 +46,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Edit"
-                    android:textSize="16dp"
+                    android:text="@string/edit"
+                    android:textSize="16sp"
                     android:onClick="clickprofile"
                     android:textColor="@color/textcolor2"
                     android:layout_marginTop="35dp"
@@ -81,6 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="10dp"
         android:layout_marginBottom="16dp"
         android:background="@color/darker"/>
 
