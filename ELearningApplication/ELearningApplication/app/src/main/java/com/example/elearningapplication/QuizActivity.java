@@ -26,7 +26,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-public class QuizActivity extends AppCompatActivity {
+public class QuizActivity extends AppCompatActivity{
 
     TextView txtQuestion;
     TextView txtQuestionNum;
@@ -53,7 +53,19 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        setupUI();
+        txtCorrect =  (TextView) findViewById(R.id.txtCorrect);
+        txtQuestion = (TextView) findViewById(R.id.txtQuestion);
+        txtWrong = (TextView) findViewById(R.id.txtWrong);
+        txtScore = (TextView) findViewById(R.id.txtScore);
+        txtQuestionNum = (TextView) findViewById(R.id.txtQuestionNum);
+        txtTimer = (TextView) findViewById(R.id.txtTime);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        ansA = (RadioButton) findViewById(R.id.letterA);
+        ansB = (RadioButton) findViewById(R.id.letterB);
+        ansC = (RadioButton) findViewById(R.id.letterC);
+        ansD = (RadioButton) findViewById(R.id.letterD);
+        nextBtn = (Button) findViewById(R.id.BtnNext);
+        //setupUI();
         textColorofButtons = ansA.getTextColors();
         questionViewModel = ViewModelProviders.of(this).get(QuestionViewModel.class);
         questionViewModel.getmAllQuestions().observe(this, new Observer<List<Questionnaire>>() {
@@ -67,20 +79,20 @@ public class QuizActivity extends AppCompatActivity {
     }
 
 
-    void setupUI() {
-        txtCorrect = findViewById(R.id.txtCorrect);
-        txtQuestion = findViewById(R.id.txtQuestion);
-        txtWrong = findViewById(R.id.txtWrong);
-        txtScore = findViewById(R.id.txtScore);
-        txtQuestionNum = findViewById(R.id.txtQuestionNum);
-        txtTimer = findViewById(R.id.txtTime);
-        radioGroup = findViewById(R.id.radioGroup);
-        ansA = findViewById(R.id.ansA);
-        ansA = findViewById(R.id.ansB);
-        ansA = findViewById(R.id.ansC);
-        ansA = findViewById(R.id.ansD);
-        nextBtn = findViewById(R.id.nextBtn);
-    }
+//    void setupUI() {
+//        txtCorrect =  (TextView) findViewById(R.id.txtCorrect);
+//        txtQuestion = (TextView) findViewById(R.id.txtQuestion);
+//        txtWrong = (TextView) findViewById(R.id.txtWrong);
+//        txtScore = (TextView) findViewById(R.id.txtScore);
+//        txtQuestionNum = (TextView) findViewById(R.id.txtQuestionNum);
+//        txtTimer = (TextView) findViewById(R.id.txtTime);
+//        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+//        ansA = (RadioButton) findViewById(R.id.ansA);
+//        ansA = (RadioButton) findViewById(R.id.ansB);
+//        ansA = (RadioButton) findViewById(R.id.ansC);
+//        ansA = (RadioButton) findViewById(R.id.ansD);
+//        nextBtn = (Button) findViewById(R.id.nextBtn);
+//    }
 
     private void fetchDataBase(List<Questionnaire> questionnaire) {
         questionnaireList = questionnaire;
@@ -92,10 +104,10 @@ public class QuizActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void setQuestions() {
         radioGroup.clearCheck();
-        ansA.setTextColor(Color.BLACK);
-        ansB.setTextColor(Color.BLACK);
-        ansC.setTextColor(Color.BLACK);
-        ansD.setTextColor(Color.BLACK);
+        ansA.setTextColor(getResources().getColor(R.color.white));
+        ansB.setTextColor(getResources().getColor(R.color.white));
+        ansC.setTextColor(getResources().getColor(R.color.white));
+        ansD.setTextColor(getResources().getColor(R.color.white));
         questionTotalCount = questionnaireList.size();
         Collections.shuffle(questionnaireList);
         if (questionCounter < questionTotalCount - 1) {
@@ -150,7 +162,7 @@ public class QuizActivity extends AppCompatActivity {
         if (timeLeftinMillis < 10000) {
             txtTimer.setTextColor(Color.RED);
         } else {
-            txtTimer.setTextColor(Color.BLACK);
+            txtTimer.setTextColor(Color.WHITE);
         }
 
         if (timeLeftinMillis == 0) {
@@ -189,29 +201,29 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i) {
-                    case R.id.ansA:
-                        ansA.setTextColor(Color.CYAN);
-                        ansB.setTextColor(Color.GRAY);
-                        ansC.setTextColor(Color.GRAY);
-                        ansD.setTextColor(Color.GRAY);
+                    case R.id.letterA:
+                        ansA.setTextColor(Color.WHITE);
+                        ansB.setTextColor(Color.BLACK);
+                        ansC.setTextColor(Color.BLACK);
+                        ansD.setTextColor(Color.BLACK);
                         break;
-                    case R.id.ansB:
-                        ansB.setTextColor(Color.CYAN);
-                        ansA.setTextColor(Color.GRAY);
-                        ansC.setTextColor(Color.GRAY);
-                        ansD.setTextColor(Color.GRAY);
+                    case R.id.letterB:
+                        ansB.setTextColor(Color.WHITE);
+                        ansA.setTextColor(Color.BLACK);
+                        ansC.setTextColor(Color.BLACK);
+                        ansD.setTextColor(Color.BLACK);
                         break;
-                    case R.id.ansC:
-                        ansC.setTextColor(Color.CYAN);
-                        ansB.setTextColor(Color.GRAY);
-                        ansA.setTextColor(Color.GRAY);
-                        ansD.setTextColor(Color.GRAY);
+                    case R.id.letterC:
+                        ansC.setTextColor(Color.WHITE);
+                        ansB.setTextColor(Color.BLACK);
+                        ansA.setTextColor(Color.BLACK);
+                        ansD.setTextColor(Color.BLACK);
                         break;
-                    case R.id.ansD:
-                        ansD.setTextColor(Color.CYAN);
-                        ansB.setTextColor(Color.GRAY);
-                        ansC.setTextColor(Color.GRAY);
-                        ansA.setTextColor(Color.GRAY);
+                    case R.id.letterD:
+                        ansD.setTextColor(Color.WHITE);
+                        ansB.setTextColor(Color.BLACK);
+                        ansC.setTextColor(Color.BLACK);
+                        ansA.setTextColor(Color.BLACK);
                         break;
                 }
             }

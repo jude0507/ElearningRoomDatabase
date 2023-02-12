@@ -23,49 +23,69 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal"
+        android:layout_marginHorizontal="5dp"
         android:layout_marginTop="15sp">
-        <TextView
-            android:id="@+id/txtScore"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Score:7"
-            android:textSize="22sp"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            android:textAlignment="textStart"/>
-        <TextView
-            android:id="@+id/txtCorrect"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtCorrect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Correct:16"
+                android:textSize="22sp"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/txtScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Score:7"
+                android:textSize="22sp"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textAlignment="textStart"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Correct:16"
-            android:textSize="22sp"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:id="@+id/txtWrong"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Wrong:12"
-            android:textSize="22sp"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:id="@+id/txtTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="00:30"
-            android:textSize="22sp"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            android:textAlignment="textEnd"/>
-        
+            android:layout_gravity="right"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtWrong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Wrong:12"
+                android:textColor="#fff"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="00:30"
+                android:textAlignment="textEnd"
+                android:textColor="#fff"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -88,12 +108,13 @@
         <RadioGroup
             android:layout_marginTop="20dp"
             android:id="@+id/radioGroup"
+            android:layout_marginHorizontal="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <RadioButton
                 android:layout_margin="5dp"
                 android:padding="10dp"
-                android:id="@+id/ansA"
+                android:id="@+id/letterA"
                 android:textStyle="bold"
                 android:textSize="22dp"
                 android:textColor="#fff"
@@ -102,13 +123,13 @@
                 android:button="@null"
                 android:textAlignment="center"
                 android:text="Answer A"
-                android:background="#13E180"
+                android:background="@color/dark"
                 android:freezesText="true"/>
             <RadioButton
                 android:layout_margin="5dp"
                 android:padding="10dp"
-                android:id="@+id/ansB"
-                android:background="#63BBE3"
+                android:id="@+id/letterB"
+                android:background="@color/dark"
                 android:textColor="#fff"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -121,11 +142,11 @@
             <RadioButton
                 android:layout_margin="5dp"
                 android:padding="10dp"
-                android:id="@+id/ansC"
+                android:id="@+id/letterC"
                 android:textColor="#fff"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:background="#0A24CA"
+                android:background="@color/dark"
                 android:textSize="22dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -135,8 +156,8 @@
             <RadioButton
                 android:layout_margin="5dp"
                 android:padding="10dp"
-                android:id="@+id/ansD"
-                android:background="#650F9A"
+                android:id="@+id/letterD"
+                android:background="@color/dark"
                 android:textAlignment="center"
                 android:textColor="#fff"
                 android:textStyle="bold"
@@ -150,12 +171,13 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/nextBtn"
+            android:id="@+id/BtnNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Next"
+            android:textSize="18sp"
             android:textColor="#fff"
-            android:background="#CF8B25"
+            android:background="#BA4C11"
             android:layout_margin="15dp"/>
     </LinearLayout>
     
