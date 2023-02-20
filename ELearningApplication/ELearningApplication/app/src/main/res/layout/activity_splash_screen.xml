@@ -6,23 +6,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".View.SplashScreen"
-    android:background="@drawable/background">
+    android:paddingTop="25dp"
+    android:background="@color/activeColor">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome"
-        android:textSize="40dp"
-        android:textColor="@color/white"
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginVertical="25dp"
+        android:src="@drawable/pasay_logo"/>
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/loadingscreen" />
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Welcome"-->
+<!--        android:textSize="40dp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginTop="30dp"/>-->
+
+<!--    <com.airbnb.lottie.LottieAnimationView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:lottie_autoPlay="true"-->
+<!--        app:lottie_loop="true"-->
+<!--        app:lottie_rawRes="@raw/loadingscreen" />-->
 
 
     <TextView

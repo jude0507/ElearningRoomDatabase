@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.elearningapplication.ActivityPDF.ActivityPDFViewQ4;
 import com.example.elearningapplication.ItemClickListener;
 import com.example.elearningapplication.Model.PDFModel;
 import com.example.elearningapplication.R;
-import com.example.elearningapplication.RecyclerAdapterQ3;
 import com.example.elearningapplication.RecyclerAdapterQ4;
 
 import java.util.ArrayList;

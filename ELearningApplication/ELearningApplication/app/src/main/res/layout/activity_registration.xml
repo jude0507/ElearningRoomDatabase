@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#F2773344"
     tools:context=".View.Registration">
 
     <LinearLayout
@@ -15,68 +15,88 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_user"
+            android:layout_marginVertical="20dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/pasay_logo"
             />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CREATE ACCOUNT"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/white"/>
+
         <EditText
-            android:id="@+id/et_name"
+            android:id="@+id/name"
             android:layout_width="300dp"
-            android:layout_marginTop="30dp"
-            android:layout_height="45dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_icon_name"
             android:hint="Name"
-            android:background="@drawable/custom_edittext"
-            android:inputType="text"
-            android:padding="10dp"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:inputType="textCapWords"
             android:drawablePadding="10dp"
-            android:textSize="20dp"
-            android:drawableLeft="@drawable/ic_account"/>
+            android:padding="10dp" />
 
         <EditText
-            android:id="@+id/et_username"
+            android:id="@+id/email"
             android:layout_width="300dp"
-            android:layout_marginTop="30dp"
-            android:layout_height="45dp"
-            android:background="@drawable/custom_edittext"
-            android:hint="Username"
+            android:layout_marginTop="10dp"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_input"
+            android:hint="Email"
             android:padding="10dp"
-            android:textSize="20dp"
+            android:textSize="18sp"
             android:drawablePadding="10dp"
-            android:inputType="text"
-            android:maxLength="15"
-            android:drawableLeft="@drawable/ic_account_circle"/>
+            android:inputType="textEmailAddress"
+            android:drawableStart="@drawable/custom_icon_email"/>
 
         <EditText
-            android:id="@+id/et_password"
+            android:id="@+id/password"
             android:layout_width="300dp"
-            android:layout_marginTop="30dp"
-            android:layout_height="45dp"
-            android:background="@drawable/custom_edittext"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_icon_key"
+            android:drawableEnd="@drawable/custom_icon_toggle_eye"
             android:hint="Password"
-            android:textSize="20dp"
-            android:padding="10dp"
+            android:textSize="18sp"
+            android:layout_gravity="center"
             android:drawablePadding="10dp"
             android:inputType="textPassword"
-            android:drawableLeft="@drawable/ic_lock"/>
-        <CheckBox
-            android:id="@+id/cb_showpassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Show Password"
-            android:textColor="@color/white"
-            android:textStyle="italic"
-            android:layout_marginRight="90dp"/>
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/ConfirmPass"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_icon_key"
+            android:drawableEnd="@drawable/custom_icon_toggle_eye"
+            android:hint="Confirm Password"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:drawablePadding="10dp"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:layout_marginBottom="15dp"/>
 
         <Button
             android:id="@+id/btn_register"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Register"
             android:textColor="@color/white"
             android:textSize="18dp"
-            android:onClick="ONCLICKREG"
+            android:onClick="RegistrationFunction"
             android:background="@drawable/custom_button"/>
 
         <TextView
@@ -87,7 +107,7 @@
             android:textColor="@color/white"
             android:layout_marginTop="20sp"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="17sp"/>
 
 
     </LinearLayout>

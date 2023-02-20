@@ -8,11 +8,14 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
+import com.example.elearningapplication.DisplayName;
 import com.example.elearningapplication.Model.UsersModel;
 import com.example.elearningapplication.R;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -31,6 +34,8 @@ public class QuarterOne extends AppCompatActivity {
     TextView nameofuser;
     CircleImageView circleImageViewProfile;
 
+    VideoView videoView;
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference collectionReference = db.collection("ELearningUsers");
 
@@ -42,32 +47,40 @@ public class QuarterOne extends AppCompatActivity {
         drawerLayout = findViewById(R.id.mydrawer_layout);
         nameofuser = findViewById(R.id.nameofuser);
         circleImageViewProfile = findViewById(R.id.profile);
+        videoView = (VideoView) findViewById(R.id.videoview);
+
+        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.samplevideo));
+        videoView.start();
 
         showUserInformation();
 
     }
 
     public void showUserInformation(){
-        String uname = Login.uname;
-        collectionReference.whereEqualTo("username",uname).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                String outputname = "";
-                for (QueryDocumentSnapshot documentSnapshot: queryDocumentSnapshots){
-                    UsersModel usersModel = documentSnapshot.toObject(UsersModel.class);
-                    usersModel.setMyid(documentSnapshot.getId());
 
-                    String set_uname = usersModel.getUsername();
-                    String set_name = usersModel.getName();
+        DisplayName.RetrieveName(this, "ELearningUsers", "username", Login.Email_Login, nameofuser);
+        Glide.with(getApplicationContext()).load(Profile.outputimageurl).placeholder(R.drawable.ic_user_circle).into(circleImageViewProfile);
 
-                    outputname += set_name;
-
-                }
-                nameofuser.setText(outputname);
-                Glide.with(getApplicationContext()).load(Profile.outputimageurl).placeholder(R.drawable.ic_user_circle).into(circleImageViewProfile);
-                //Picasso.with(getApplicationContext()).load(Profile.outputimageurl).into(circleImageViewProfile);
-            }
-        });
+//        String uname = Login.Email_Login;
+//        collectionReference.whereEqualTo("username",uname).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//            @Override
+//            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                String outputname = "";
+//                for (QueryDocumentSnapshot documentSnapshot: queryDocumentSnapshots){
+//                    UsersModel usersModel = documentSnapshot.toObject(UsersModel.class);
+//                    usersModel.setMyid(documentSnapshot.getId());
+//
+//                    String set_uname = usersModel.getUsername();
+//                    String set_name = usersModel.getName();
+//
+//                    outputname += set_name;
+//
+//                }
+//                nameofuser.setText(outputname);
+//                Glide.with(getApplicationContext()).load(Profile.outputimageurl).placeholder(R.drawable.ic_user_circle).into(circleImageViewProfile);
+//                //Picasso.with(getApplicationContext()).load(Profile.outputimageurl).into(circleImageViewProfile);
+//            }
+//        });
     }
 
 

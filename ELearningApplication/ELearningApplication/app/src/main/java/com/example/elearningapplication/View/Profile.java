@@ -242,7 +242,7 @@ public class Profile extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
                                 imageURL = uri.toString();
-                                DocumentReference documentReference = db.collection("ELearningUsers").document(Login.uname);
+                                DocumentReference documentReference = db.collection("ELearningUsers").document(Login.Email_Login);
                                 Map<String, Object> map = new HashMap<>();
                                 map.put("imageurl", uri);
                                 map.put("imagename",imageuri.toString());
@@ -278,7 +278,7 @@ public class Profile extends AppCompatActivity {
     }
 
     public void fetchdata(){
-        String uname = Login.uname;
+        String uname = Login.Email_Login;
         collectionReference.whereEqualTo("username",uname).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -316,7 +316,7 @@ public class Profile extends AppCompatActivity {
 
     public void updateuserinfo(){
         String fetchpassword = textInputEditText_password.getText().toString();
-        DocumentReference documentReference = db.collection("ELearningUsers").document(Login.uname);
+        DocumentReference documentReference = db.collection("ELearningUsers").document(Login.Email_Login);
         documentReference.update(Login.MY_PASSWORD,fetchpassword);
         uploadToStorage();
         //Toast.makeText(this,"Updated Successfully",Toast.LENGTH_LONG).show();

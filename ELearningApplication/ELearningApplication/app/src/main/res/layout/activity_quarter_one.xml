@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@color/white"
     android:id="@+id/mydrawer_layout"
     tools:context=".View.QuarterOne">
     <LinearLayout
@@ -14,14 +14,21 @@
 
         <include layout="@layout/mytoolbar"/>
 
-        <TextView
+        <VideoView
+            android:id="@+id/videoview"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Quarter One"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-            android:layout_margin="15dp"/>
+            android:layout_height="150dp"/>
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Quarter One"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="30dp"-->
+<!--            android:layout_margin="15dp"/>-->
 
         <GridLayout
             android:layout_width="match_parent"
@@ -31,7 +38,7 @@
 
             <androidx.cardview.widget.CardView
                 android:onClick="gotoMultimedia"
-                app:cardBackgroundColor="@color/multimediabg"
+                app:cardBackgroundColor="@color/activeColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
@@ -70,7 +77,7 @@
 
             <androidx.cardview.widget.CardView
                 android:onClick="gotoLearningMaterials"
-                app:cardBackgroundColor="@color/learningmaterialbg"
+                app:cardBackgroundColor="@color/activeColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
@@ -109,7 +116,7 @@
 
             <androidx.cardview.widget.CardView
                 android:onClick="gotoStudentProgress"
-                app:cardBackgroundColor="@color/studentprogressbg"
+                app:cardBackgroundColor="@color/activeColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="1"
@@ -148,7 +155,7 @@
 
             <androidx.cardview.widget.CardView
                 android:onClick="gotoStudentAssessment"
-                app:cardBackgroundColor="@color/studentassesmentbg"
+                app:cardBackgroundColor="@color/activeColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="1"

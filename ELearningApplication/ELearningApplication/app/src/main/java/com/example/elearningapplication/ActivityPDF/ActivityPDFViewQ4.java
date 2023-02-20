@@ -1,4 +1,4 @@
-package com.example.elearningapplication.View;
+package com.example.elearningapplication.ActivityPDF;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.elearningapplication.R;
+import com.example.elearningapplication.View.RecyclerViewQ4;
 import com.github.barteksc.pdfviewer.PDFView;
 
 public class ActivityPDFViewQ4 extends AppCompatActivity {

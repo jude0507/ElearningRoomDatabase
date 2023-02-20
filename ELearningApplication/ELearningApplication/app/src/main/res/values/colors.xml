@@ -18,4 +18,7 @@
     <color name="textcolor1">#69140E</color>
     <color name="textcolor2">#D58936</color>
     <color name="transparent">#0DD58936</color>
+    <color name="grayColor">#AAAAAA</color>
+    <color name="activeColor">#773344</color>
+
 </resources>

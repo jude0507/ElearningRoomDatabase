@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.elearningapplication.DisplayName;
 import com.example.elearningapplication.Model.UsersModel;
 import com.example.elearningapplication.R;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -37,26 +38,29 @@ public class QuarterFour extends AppCompatActivity {
         nameofuser = findViewById(R.id.nameofuser);
         circleImageViewProfile = findViewById(R.id.profile);
 
-        String uname = Login.uname;
-        collectionReference.whereEqualTo("username",uname).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                String outputname = "";
-                for (QueryDocumentSnapshot documentSnapshot: queryDocumentSnapshots){
-                    UsersModel usersModel = documentSnapshot.toObject(UsersModel.class);
-                    usersModel.setMyid(documentSnapshot.getId());
+        DisplayName.RetrieveName(this, "ELearningUsers", "username", Login.Email_Login, nameofuser);
+        Glide.with(getApplicationContext()).load(Profile.outputimageurl).placeholder(R.drawable.ic_user_circle).into(circleImageViewProfile);
 
-                    String set_uname = usersModel.getUsername();
-                    String set_name = usersModel.getName();
-
-                    outputname += set_name;
-
-                }
-                nameofuser.setText(outputname);
-                Glide.with(getApplicationContext()).load(Profile.outputimageurl).placeholder(R.drawable.ic_user_circle).into(circleImageViewProfile);
-                //Picasso.with(getApplicationContext()).load(Profile.outputimageurl).into(circleImageViewProfile);
-            }
-        });
+//        String uname = Login.Email_Login;
+//        collectionReference.whereEqualTo("username",uname).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//            @Override
+//            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                String outputname = "";
+//                for (QueryDocumentSnapshot documentSnapshot: queryDocumentSnapshots){
+//                    UsersModel usersModel = documentSnapshot.toObject(UsersModel.class);
+//                    usersModel.setMyid(documentSnapshot.getId());
+//
+//                    String set_uname = usersModel.getUsername();
+//                    String set_name = usersModel.getName();
+//
+//                    outputname += set_name;
+//
+//                }
+//                nameofuser.setText(outputname);
+//                Glide.with(getApplicationContext()).load(Profile.outputimageurl).placeholder(R.drawable.ic_user_circle).into(circleImageViewProfile);
+//                //Picasso.with(getApplicationContext()).load(Profile.outputimageurl).into(circleImageViewProfile);
+//            }
+//        });
     }
 
     public void clickmenu(View view){

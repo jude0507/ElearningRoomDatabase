@@ -1,13 +1,16 @@
 package com.example.elearningapplication.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +23,12 @@ import android.widget.Toast;
 
 import com.example.elearningapplication.Model.UsersModel;
 import com.example.elearningapplication.R;
+import com.example.elearningapplication.ShowPassword;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -36,11 +44,12 @@ public class Login extends AppCompatActivity {
     static final String MY_USERNAME = "username";
     static final String MY_PASSWORD = "password";
 
-    public static String uname, upass, name;
-   // public static String outputname = "";
-    private EditText usernameLogin,passwordLogin;
+    public static String Email_Login, Password_Login, Name;
+    //public static String uname, upass, name;
+    ProgressDialog progressDialog;
+   public static String outputname;
+    private EditText emailLogin,passwordLogin;
     private Button btnlogin;
-    private CheckBox show_password;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference collectionReference = db.collection("ELearningUsers");
@@ -50,115 +59,11 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        usernameLogin = findViewById(R.id.my_uname);
-        passwordLogin = findViewById(R.id.my_pass);
-        btnlogin = findViewById(R.id.btn_login);
-        show_password = findViewById(R.id.cb_showpassword);
+        emailLogin = findViewById(R.id.email);
+        passwordLogin = findViewById(R.id.password);
+        ShowPassword showPassword = new ShowPassword();
+        showPassword.ShowPassword(passwordLogin);
 
-        show_password.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (show_password.isChecked()){
-                    //for true visibility
-                    passwordLogin.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                }else{
-
-                    //for false visibility
-                    passwordLogin.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                }
-            }
-        });
-
-    }
-
-    public void login(View view) {
-
-        if (!usernameLogin.getText().toString().isEmpty() && !passwordLogin.getText().toString().isEmpty()) {
-            DocumentReference documentReference = db.collection("ELearningUsers").document(usernameLogin.getText().toString());
-            documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                @Override
-                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    if (documentSnapshot.exists()) {
-                        uname = documentSnapshot.getString(MY_USERNAME).toString();
-                        upass = documentSnapshot.getString(MY_PASSWORD).toString();
-                        if (usernameLogin.getText().toString().equals(uname) && passwordLogin.getText().toString().equals(upass)) {
-                            collectionReference.whereEqualTo("username",uname).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                                @Override
-                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                                    String outputname = "";
-                                    for (QueryDocumentSnapshot documentSnapshot: queryDocumentSnapshots){
-                                        UsersModel usersModel = documentSnapshot.toObject(UsersModel.class);
-                                        usersModel.setMyid(documentSnapshot.getId());
-
-                                        String set_uname = usersModel.getUsername();
-                                        String set_name = usersModel.getName();
-
-                                        outputname += set_name;
-
-                                    }
-                                    AlertDialog.Builder myBuilder = new AlertDialog.Builder(Login.this);
-                                    LayoutInflater myinflater = getLayoutInflater();
-                                    View mydialogView = myinflater.inflate(R.layout.greetingdialog,null);
-                                    myBuilder.setCancelable(false);
-                                    myBuilder.setView(mydialogView);
-
-                                    ImageView imageViewOk = mydialogView.findViewById(R.id.close_dialog);
-                                    TextView txtshowname = mydialogView.findViewById(R.id.displayUsername);
-
-                                    final AlertDialog alertDialogmyPicture = myBuilder.create();
-                                    alertDialogmyPicture.show();
-
-                                    txtshowname.setText(outputname);
-
-                                    imageViewOk.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            Toast.makeText(Login.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                                            alertDialogmyPicture.dismiss();
-                                            startActivity(new Intent(Login.this, QuarterOne.class));
-                                        }
-                                    });
-
-                                   // nameofuser.setText(outputname);
-
-//                                    AlertDialog.Builder alBuilder = new AlertDialog.Builder(Login.this);
-//                                    String msg = "Welcome \n" + outputname;
-//                                    alBuilder.setTitle("Message")
-//                                            .setMessage(msg);
-//                                    alBuilder.setPositiveButton("Thank you", new DialogInterface.OnClickListener() {
-//                                        @Override
-//                                        public void onClick(DialogInterface dialog, int which) {
-//                                            dialog.dismiss();
-//                                            Toast.makeText(Login.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-//                                            startActivity(new Intent(Login.this, QuarterOne.class));
-//
-//                                        }
-//                                    });
-//                                    alBuilder.create().show();
-                                }
-
-                            });
-                        } else {
-                            Toast.makeText(Login.this, "Username and Password not match", Toast.LENGTH_SHORT).show();
-                        }
-
-                    } else {
-                        Toast.makeText(Login.this, "You don't have an account", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }else{
-            if (usernameLogin.getText().toString().isEmpty() && passwordLogin.getText().toString().isEmpty()){
-                usernameLogin.setError("Required Field");
-                passwordLogin.setError("Required Field");
-                Toast.makeText(Login.this, "Username and Password Required", Toast.LENGTH_LONG).show();
-            }else if (usernameLogin.getText().toString().isEmpty()){
-                usernameLogin.setError("Required Field");
-            }else{
-                passwordLogin.setError("Required Field");
-            }
-
-        }
     }
 
     public void GotoReg(View view) {
@@ -169,5 +74,115 @@ public class Login extends AppCompatActivity {
     public void onBackPressed() {
         finishAffinity();
         System.exit(0);
+    }
+
+    public void LoginFunction(View view) {
+        if (!emailLogin.getText().toString().trim().isEmpty() && !passwordLogin.getText().toString().trim().isEmpty()){
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setCanceledOnTouchOutside(false);
+            final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+            progressDialog.show();
+            progressDialog.setContentView(R.layout.progress_dialog_account_checking);
+            progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            DocumentReference documentReference = db.collection("ELearningUsers").document(emailLogin.getText().toString());
+            documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    if (documentSnapshot.exists()){
+                         Email_Login = documentSnapshot.getString("username");
+                         Password_Login = documentSnapshot.getString("password");
+                         Name = documentSnapshot.getString("name");
+
+                        firebaseAuth.signInWithEmailAndPassword(Email_Login, Password_Login)
+                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if (task.isSuccessful()){
+
+                                            if (firebaseAuth.getCurrentUser().isEmailVerified()){
+                                                if (emailLogin.getText().toString().equals(Email_Login) && passwordLogin.getText().toString().equals(Password_Login)){
+                                                    VerifiedStatus();
+                                                    progressDialog.dismiss();
+                                                    Toast.makeText(Login.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                                                    collectionReference.whereEqualTo("username", Email_Login).get()
+                                                                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                                                        @Override
+                                                                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                                                            outputname = "";
+                                                                            for (QueryDocumentSnapshot documentSnapshot1 : queryDocumentSnapshots){
+                                                                                UsersModel usersModel = documentSnapshot1.toObject(UsersModel.class);
+                                                                                usersModel.setMyid(documentSnapshot1.getId());
+                                                                                String set_uname = usersModel.getUsername();
+                                                                                String set_name = usersModel.getName();
+
+                                                                                outputname += set_name;
+                                                                            }
+
+                                                                            AlertDialog.Builder myBuilder = new AlertDialog.Builder(Login.this);
+                                                                            LayoutInflater myinflater = getLayoutInflater();
+                                                                            View mydialogView = myinflater.inflate(R.layout.greetingdialog,null);
+                                                                            myBuilder.setCancelable(false);
+                                                                            myBuilder.setView(mydialogView);
+
+                                                                            ImageView imageViewOk = mydialogView.findViewById(R.id.close_dialog);
+                                                                            TextView txtshowname = mydialogView.findViewById(R.id.displayUsername);
+
+                                                                            final AlertDialog alertDialogmyPicture = myBuilder.create();
+                                                                            alertDialogmyPicture.show();
+
+                                                                            txtshowname.setText(outputname);
+
+                                                                            imageViewOk.setOnClickListener(new View.OnClickListener() {
+                                                                                @Override
+                                                                                public void onClick(View v) {
+                                                                                    alertDialogmyPicture.dismiss();
+                                                                                    startActivity(new Intent(Login.this, QuarterOne.class));
+                                                                                }
+                                                                            });
+
+                                                                        }
+                                                                    });
+//                                                    startActivity(new Intent(Login.this, QuarterOne.class));
+                                                }else {
+                                                    progressDialog.dismiss();
+                                                    Toast.makeText(Login.this, "Credential not match", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }else{
+                                                progressDialog.dismiss();
+                                                Toast.makeText(Login.this, "Please verify your email", Toast.LENGTH_SHORT).show();
+                                            }
+
+                                        }
+
+                                    }
+                                });
+                    }else{
+                        progressDialog.dismiss();
+                        Toast.makeText(Login.this, "You don't have an account", Toast.LENGTH_LONG).show();
+                    }
+
+                }
+            });
+
+        }else{
+            if (emailLogin.getText().toString().isEmpty() && passwordLogin.getText().toString().isEmpty()){
+                emailLogin.setError("Required Field");
+                passwordLogin.setError("Required Field");
+                Toast.makeText(Login.this, "Username and Password Required", Toast.LENGTH_LONG).show();
+            }else if (emailLogin.getText().toString().isEmpty()){
+                emailLogin.requestFocus();
+                emailLogin.setError("Required Field");
+            }else{
+                passwordLogin.requestFocus();
+                passwordLogin.setError("Required Field");
+            }
+        }
+
+    }
+
+    public void VerifiedStatus(){
+        String Verified = "Verified";
+        DocumentReference updateReference = db.collection("ElearningUsers").document(emailLogin.getText().toString());
+        updateReference.update("email_status", Verified);
     }
 }

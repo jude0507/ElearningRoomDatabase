@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#F2773344"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="5dp"
     tools:context=".View.Login">
 
 
@@ -17,48 +17,48 @@
         android:gravity="center"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/pasay_logo"
+            android:layout_gravity="center"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="Welcome"
+            android:layout_marginVertical="20dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/white"
             android:textSize="40dp" />
 
         <EditText
-            android:id="@+id/my_uname"
+            android:id="@+id/email"
             android:layout_width="300dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/custom_edittext"
-            android:drawableLeft="@drawable/ic_account_circle"
-            android:hint="Username"
-            android:textSize="18dp"
-            android:inputType="text"
+            android:layout_marginTop="10dp"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_input"
+            android:hint="Email"
+            android:padding="10dp"
+            android:textSize="18sp"
             android:drawablePadding="10dp"
-            android:padding="10dp" />
+            android:inputType="textEmailAddress"
+            android:drawableStart="@drawable/custom_icon_email"/>
 
         <EditText
-            android:id="@+id/my_pass"
+            android:id="@+id/password"
             android:layout_width="300dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/custom_edittext"
-            android:drawableLeft="@drawable/ic_lock"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_icon_key"
+            android:drawableEnd="@drawable/custom_icon_toggle_eye"
             android:hint="Password"
-            android:textSize="18dp"
+            android:textSize="18sp"
+            android:layout_gravity="center"
             android:drawablePadding="10dp"
             android:inputType="textPassword"
-            android:padding="10dp" />
-
-        <CheckBox
-            android:id="@+id/cb_showpassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Show Password"
-            android:textStyle="italic"
-            android:textColor="@color/white"
-            android:layout_marginRight="90dp"/>
+            android:padding="10dp"/>
 
         <Button
             android:id="@+id/btn_login"
@@ -67,7 +67,7 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/custom_button"
             android:text="Login"
-            android:onClick="login"
+            android:onClick="LoginFunction"
             android:textColor="#ffff"
             android:textSize="20sp"/>
 
@@ -83,6 +83,7 @@
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
             android:text="Forgot Password"
             android:textColor="@color/white"/>
 
@@ -97,15 +98,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dont have an account?"
+                android:textSize="16sp"
                 android:textColor="@color/white"/>
 
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
                 android:text=" Create one"
                 android:onClick="GotoReg"
-                android:textColor="@color/darker"/>
+                android:textColor="@color/dark"/>
 
         </LinearLayout>
 
