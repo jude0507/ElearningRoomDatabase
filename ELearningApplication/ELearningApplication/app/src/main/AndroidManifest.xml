@@ -21,6 +21,10 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".DisplayVideo"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
+        <activity
             android:name=".QuizActivity"
             android:exported="false">
             <meta-data
@@ -32,7 +36,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".View.RecyclerViewQ4"
+            android:name=".RecyclerView.RecyclerViewQ4"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -40,7 +44,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".View.RecyclerViewQ3"
+            android:name=".RecyclerView.RecyclerViewQ3"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -48,7 +52,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".View.RecyclerViewQ2"
+            android:name=".RecyclerView.RecyclerViewQ2"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -60,7 +64,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".View.RecyclerViewQ1"
+            android:name=".RecyclerView.RecyclerViewQ1"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -80,19 +84,19 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".View.QuarterFour"
+            android:name=".Quarter.QuarterFour"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".View.QuarterThree"
+            android:name=".Quarter.QuarterThree"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".View.QuarterTwo"
+            android:name=".Quarter.QuarterTwo"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".View.QuarterOne"
+            android:name=".Quarter.QuarterOne"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

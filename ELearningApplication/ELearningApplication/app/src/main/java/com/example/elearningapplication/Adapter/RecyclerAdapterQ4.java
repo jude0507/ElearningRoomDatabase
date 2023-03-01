@@ -1,4 +1,4 @@
-package com.example.elearningapplication;
+package com.example.elearningapplication.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,29 +8,28 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.elearningapplication.ItemClickListener;
 import com.example.elearningapplication.Model.PDFModel;
+import com.example.elearningapplication.R;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapterQ1 extends RecyclerView.Adapter<RecyclerAdapterQ1.MyViewHolder> {
-    private ArrayList<PDFModel> mymodel;
+public class RecyclerAdapterQ4 extends RecyclerView.Adapter<RecyclerAdapterQ4.MyViewHolder>{
+    private ArrayList<PDFModel> mymodelQ4;
     private ItemClickListener listener;
 
-    public RecyclerAdapterQ1(ArrayList<PDFModel> mymodel, ItemClickListener listener){
-        this.mymodel = mymodel;
+    public RecyclerAdapterQ4(ArrayList<PDFModel> mymodelQ4, ItemClickListener listener){
+        this.mymodelQ4 = mymodelQ4;
         this.listener = listener;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mytitle;
-
-        public MyViewHolder(final View view){
+        public MyViewHolder(@NonNull View view) {
             super(view);
-
             mytitle = view.findViewById(R.id.txt_title);
             view.setOnClickListener(this);
         }
-
         @Override
         public void onClick(View v) {
             listener.onItemClickLister(v, getAdapterPosition());
@@ -39,21 +38,21 @@ public class RecyclerAdapterQ1 extends RecyclerView.Adapter<RecyclerAdapterQ1.My
 
     @NonNull
     @Override
-    public RecyclerAdapterQ1.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerAdapterQ4.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemview = LayoutInflater.from(parent.getContext()).inflate(R.layout.myrecyclerviewrow, parent, false);
-        return new MyViewHolder(itemview);
+        return new RecyclerAdapterQ4.MyViewHolder(itemview);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerAdapterQ1.MyViewHolder holder, int position) {
-
-        String nametitle = mymodel.get(position).getPdftitle();
+    public void onBindViewHolder(@NonNull RecyclerAdapterQ4.MyViewHolder holder, int position) {
+        String nametitle = mymodelQ4.get(position).getPdftitle();
         holder.mytitle.setText(nametitle);
-
     }
 
     @Override
     public int getItemCount() {
-        return mymodel.size();
+        return mymodelQ4.size();
     }
+
+
 }

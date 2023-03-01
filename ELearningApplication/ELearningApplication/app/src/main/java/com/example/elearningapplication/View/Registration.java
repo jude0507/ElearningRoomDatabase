@@ -105,8 +105,9 @@ public class Registration extends AppCompatActivity {
                                                                         userModel.setPassword(password);
 
                                                                         firestore.collection("ELearningUsers").document(email).set(userModel);
-                                                                        Toast.makeText(Registration.this, "User Registered Successfully! Please Verify your email", Toast.LENGTH_SHORT).show();
-                                                                        Toast.makeText(Registration.this, "Please check your inbox/spam message", Toast.LENGTH_LONG).show();
+                                                                        Toast.makeText(Registration.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                                                                        //Toast.makeText(Registration.this, "User Registered Successfully! Please Verify your email", Toast.LENGTH_SHORT).show();
+                                                                        //Toast.makeText(Registration.this, "Please check your inbox/spam message", Toast.LENGTH_LONG).show();
                                                                         progressDialog.dismiss();
                                                                         clearField();
 

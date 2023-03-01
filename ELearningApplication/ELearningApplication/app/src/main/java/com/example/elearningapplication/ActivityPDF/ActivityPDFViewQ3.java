@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.elearningapplication.R;
-import com.example.elearningapplication.View.RecyclerViewQ3;
+import com.example.elearningapplication.RecyclerView.RecyclerViewQ3;
 import com.github.barteksc.pdfviewer.PDFView;
 
 public class ActivityPDFViewQ3 extends AppCompatActivity {

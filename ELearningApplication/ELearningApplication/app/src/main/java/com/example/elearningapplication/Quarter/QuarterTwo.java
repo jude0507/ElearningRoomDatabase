@@ -1,42 +1,53 @@
-package com.example.elearningapplication.View;
+package com.example.elearningapplication.Quarter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 import com.example.elearningapplication.DisplayName;
-import com.example.elearningapplication.Model.UsersModel;
 import com.example.elearningapplication.R;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.example.elearningapplication.View.Login;
+import com.example.elearningapplication.View.Profile;
+import com.example.elearningapplication.RecyclerView.RecyclerViewQ2;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class QuarterFour extends AppCompatActivity {
+public class QuarterTwo extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
+    CardView learningpdf;
+
+    VideoView videoView;
+
     TextView nameofuser;
     CircleImageView circleImageViewProfile;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference collectionReference = db.collection("ELearningUsers");
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quarter_four);
+        setContentView(R.layout.activity_quarter_two);
 
         drawerLayout = findViewById(R.id.mydrawer_layout);
         nameofuser = findViewById(R.id.nameofuser);
         circleImageViewProfile = findViewById(R.id.profile);
+        videoView = (VideoView) findViewById(R.id.videoview);
+
+        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.samplevideo));
+        videoView.start();
 
         DisplayName.RetrieveName(this, "ELearningUsers", "username", Login.Email_Login, nameofuser);
         Glide.with(getApplicationContext()).load(Profile.outputimageurl).placeholder(R.drawable.ic_user_circle).into(circleImageViewProfile);
@@ -61,6 +72,7 @@ public class QuarterFour extends AppCompatActivity {
 //                //Picasso.with(getApplicationContext()).load(Profile.outputimageurl).into(circleImageViewProfile);
 //            }
 //        });
+
     }
 
     public void clickmenu(View view){
@@ -76,17 +88,19 @@ public class QuarterFour extends AppCompatActivity {
     }
 
     public void clickquartertwo(View view){
-        QuarterOne.redirectActivity(this, QuarterTwo.class);
-
+        recreate();
     }
 
     public void clickquarterthree(View view){
         QuarterOne.redirectActivity(this, QuarterThree.class);
-
     }
 
     public void clickquarterfour(View view){
-        recreate();
+        QuarterOne.redirectActivity(this, QuarterFour.class);
+    }
+
+    public void clickprofile(View view){
+        startActivity(new Intent(QuarterTwo.this, Profile.class));
     }
 
     public void clicklogout(View view){
@@ -99,10 +113,8 @@ public class QuarterFour extends AppCompatActivity {
         QuarterOne.closeDrawer(drawerLayout);
     }
 
-    public void clickprofile(View view){
-        startActivity(new Intent(QuarterFour.this, Profile.class));
-    }
     public void learningmodule(View view) {
-        startActivity(new Intent(QuarterFour.this, RecyclerViewQ4.class));
+        startActivity(new Intent(QuarterTwo.this, RecyclerViewQ2.class));
     }
+
 }

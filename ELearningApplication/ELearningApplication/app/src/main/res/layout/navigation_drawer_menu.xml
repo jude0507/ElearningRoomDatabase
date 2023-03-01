@@ -20,7 +20,7 @@
             android:layout_marginTop="25dp"
             android:text="Computer System Servicing Application"
             android:textSize="20sp"
-            android:textColor="@color/textcolor2"
+            android:textColor="#fff"
             android:textAlignment="center"
             android:textStyle="bold"/>
         <LinearLayout
@@ -41,7 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:civ_border_width="2dp"
-                    app:civ_border_color="@color/black"
+                    app:civ_border_color="@color/textcolor2"
                     android:src="@drawable/ic_user_circle"/>
                 <TextView
                     android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                     android:text="@string/edit"
                     android:textSize="16sp"
                     android:onClick="clickprofile"
-                    android:textColor="@color/textcolor2"
+                    android:textColor="@color/activeColor"
                     android:layout_marginTop="35dp"
                     android:textAlignment="center"/>
 
@@ -62,7 +62,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginLeft="10dp"
                 android:textSize="20sp"
-                android:textColor="@color/textcolor2"
+                android:textColor="@color/white"
                 android:textStyle="bold"/>
 
 
@@ -89,10 +89,11 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:layout_weight="1"
             android:text="Quarter Module"
+            android:textColor="@color/white"
             android:textStyle="bold"
+            android:textSize="17sp"
             android:padding="12dp"
             android:layout_marginStart="16dp"/>
         <ImageView
@@ -115,6 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Quarter Module"
+            android:textSize="17sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:padding="12dp"
@@ -139,6 +141,7 @@
             android:layout_weight="1"
             android:text="Quarter Module"
             android:textColor="@color/white"
+            android:textSize="17sp"
             android:textStyle="bold"
             android:padding="12dp"
             android:layout_marginStart="16dp"/>
@@ -149,29 +152,71 @@
             android:src="@drawable/ic_three_svgrepo_com"/>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:onClick="clickquarterfour">
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/quarterFourContainer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Quarter Module"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:padding="12dp"
-            android:layout_marginStart="16dp"/>
-        <ImageView
-            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:onClick="clickquarterfour">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:text="Quarter Module"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:padding="12dp"
+                android:layout_marginStart="16dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:src="@drawable/ic_four_svgrepo_com"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/progressStudent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:src="@drawable/ic_four_svgrepo_com"/>
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/txt_StudentProgress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:text="Student Progress"
+                android:textStyle="bold"
+                android:paddingTop="12dp"
+                android:paddingStart="5dp"
+                android:textSize="17sp"
+                android:drawablePadding="2dp"
+                android:drawableStart="@drawable/ic_profit"
+                android:layout_marginStart="16dp"/>
+            <!--            <ImageView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginEnd="48dp"-->
+            <!--                -->
+            <!--                android:src="@drawable/ic_one_svgrepo_com"/>-->
+
+        </LinearLayout>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -187,6 +232,7 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             android:padding="12dp"
+            android:textSize="17sp"
             android:layout_marginStart="16dp"/>
         <ImageView
             android:layout_width="wrap_content"

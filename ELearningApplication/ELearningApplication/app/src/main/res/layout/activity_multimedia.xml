@@ -6,26 +6,30 @@
     android:layout_height="match_parent"
     android:id="@+id/mydrawer_layout"
     tools:context=".View.Multimedia"
-    android:background="@drawable/background">
+    android:background="@color/white">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <include layout="@layout/mytoolbar"/>
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Multimedia"
-            android:textSize="50dp"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:orientation="vertical">
+
+            <include layout="@layout/mytoolbar"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/VideoRecyclerView"
+                android:layout_marginVertical="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
 
-    </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
 
     <RelativeLayout
         android:layout_width="300dp"

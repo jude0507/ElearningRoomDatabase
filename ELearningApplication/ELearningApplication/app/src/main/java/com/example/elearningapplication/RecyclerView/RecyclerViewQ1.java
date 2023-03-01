@@ -1,4 +1,4 @@
-package com.example.elearningapplication.View;
+package com.example.elearningapplication.RecyclerView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -13,7 +13,8 @@ import com.example.elearningapplication.ActivityPDF.ActivityPDFViewQ1;
 import com.example.elearningapplication.ItemClickListener;
 import com.example.elearningapplication.Model.PDFModel;
 import com.example.elearningapplication.R;
-import com.example.elearningapplication.RecyclerAdapterQ1;
+import com.example.elearningapplication.Adapter.RecyclerAdapterQ1;
+import com.example.elearningapplication.View.LearningMaterials;
 
 import java.util.ArrayList;
 

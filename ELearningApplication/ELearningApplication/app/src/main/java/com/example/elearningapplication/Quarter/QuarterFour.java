@@ -1,30 +1,43 @@
-package com.example.elearningapplication.View;
+package com.example.elearningapplication.Quarter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 import com.example.elearningapplication.DisplayName;
-import com.example.elearningapplication.Model.UsersModel;
 import com.example.elearningapplication.R;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.example.elearningapplication.View.Login;
+import com.example.elearningapplication.View.Profile;
+import com.example.elearningapplication.RecyclerView.RecyclerViewQ4;
+import com.example.elearningapplication.View.StudentAssessment;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class QuarterThree extends AppCompatActivity {
+public class QuarterFour extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     TextView nameofuser;
     CircleImageView circleImageViewProfile;
+
+    LinearLayout containerQ4, studentProgressContainer;
+
+    TextView student_progress;
+
+
+    VideoView videoView;
+
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference collectionReference = db.collection("ELearningUsers");
@@ -32,14 +45,44 @@ public class QuarterThree extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quarter_three);
+        setContentView(R.layout.activity_quarter_four);
 
         drawerLayout = findViewById(R.id.mydrawer_layout);
         nameofuser = findViewById(R.id.nameofuser);
         circleImageViewProfile = findViewById(R.id.profile);
+        videoView = (VideoView) findViewById(R.id.videoview);
+        containerQ4 = (LinearLayout) findViewById(R.id.quarterFourContainer);
+        studentProgressContainer = (LinearLayout) findViewById(R.id.progressStudent);
+        student_progress = (TextView) findViewById(R.id.txt_StudentProgress);
+
+
+        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.samplevideo));
+        videoView.start();
 
         DisplayName.RetrieveName(this, "ELearningUsers", "username", Login.Email_Login, nameofuser);
         Glide.with(getApplicationContext()).load(Profile.outputimageurl).placeholder(R.drawable.ic_user_circle).into(circleImageViewProfile);
+
+        containerQ4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (studentProgressContainer.getVisibility() == View.GONE) {
+                    TransitionManager.beginDelayedTransition(containerQ4, new AutoTransition());
+                    studentProgressContainer.setVisibility(View.VISIBLE);
+                    //logoutbtn.setBackgroundResource(R.drawable.ic_arrow_up);
+                }else{
+                    TransitionManager.beginDelayedTransition(containerQ4, new AutoTransition());
+                    studentProgressContainer.setVisibility(View.GONE);
+                    //logoutbtn.setBackgroundResource(R.drawable.ic_arrow_down);
+                }
+            }
+        });
+
+        student_progress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(QuarterFour.this, StudentAssessment.class));
+            }
+        });
 
 //        String uname = Login.Email_Login;
 //        collectionReference.whereEqualTo("username",uname).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -61,7 +104,6 @@ public class QuarterThree extends AppCompatActivity {
 //                //Picasso.with(getApplicationContext()).load(Profile.outputimageurl).into(circleImageViewProfile);
 //            }
 //        });
-
     }
 
     public void clickmenu(View view){
@@ -82,15 +124,12 @@ public class QuarterThree extends AppCompatActivity {
     }
 
     public void clickquarterthree(View view){
-        recreate();
+        QuarterOne.redirectActivity(this, QuarterThree.class);
+
     }
 
     public void clickquarterfour(View view){
-        QuarterOne.redirectActivity(this, QuarterFour.class);
-    }
-
-    public void clickprofile(View view){
-        startActivity(new Intent(this, Profile.class));
+        recreate();
     }
 
     public void clicklogout(View view){
@@ -103,8 +142,10 @@ public class QuarterThree extends AppCompatActivity {
         QuarterOne.closeDrawer(drawerLayout);
     }
 
-    public void learningmodule(View view) {
-        startActivity(new Intent(QuarterThree.this, RecyclerViewQ3.class));
+    public void clickprofile(View view){
+        startActivity(new Intent(QuarterFour.this, Profile.class));
     }
-
+    public void learningmodule(View view) {
+        startActivity(new Intent(QuarterFour.this, RecyclerViewQ4.class));
+    }
 }

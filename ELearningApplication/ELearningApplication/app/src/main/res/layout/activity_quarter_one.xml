@@ -6,197 +6,212 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:id="@+id/mydrawer_layout"
-    tools:context=".View.QuarterOne">
-    <LinearLayout
+    tools:context=".Quarter.QuarterOne">
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <include layout="@layout/mytoolbar"/>
-
-        <VideoView
-            android:id="@+id/videoview"
-            android:layout_margin="5dp"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"/>
-
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Quarter One"-->
-<!--            android:textAlignment="center"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="30dp"-->
-<!--            android:layout_margin="15dp"/>-->
-
-        <GridLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:rowCount="2"
-            android:columnCount="2">
+            android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
-                android:onClick="gotoMultimedia"
-                app:cardBackgroundColor="@color/activeColor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="0"
-                android:layout_column="0"
-                android:layout_gravity="fill"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                app:cardElevation="10dp"
-                app:cardCornerRadius="5dp"
-                android:layout_margin="10dp">
+            <include layout="@layout/mytoolbar"/>
 
-                <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_height="200dp">
+
+                <VideoView
+                    android:id="@+id/videoview"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+            <!--        <TextView-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="Quarter One"-->
+            <!--            android:textAlignment="center"-->
+            <!--            android:textColor="@color/white"-->
+            <!--            android:textSize="30dp"-->
+            <!--            android:layout_margin="15dp"/>-->
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:rowCount="2"
+                android:columnCount="2">
+
+                <androidx.cardview.widget.CardView
+                    android:onClick="gotoMultimedia"
+                    app:cardBackgroundColor="@color/activeColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_gravity="fill"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="5dp"
+                    android:layout_margin="10dp">
 
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_multimedia_player_svgrepo_com"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Multimedia"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="16dp"/>
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical|center_horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_video_conference"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Video Lesson"
+                            android:textAlignment="center"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="16dp"/>
 
 
-                </LinearLayout>
+                    </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:onClick="gotoLearningMaterials"
-                app:cardBackgroundColor="@color/activeColor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="0"
-                android:layout_column="1"
-                android:layout_gravity="fill"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                app:cardElevation="10dp"
-                app:cardCornerRadius="5dp"
-                android:layout_margin="10dp">
-
-                <LinearLayout
+                <androidx.cardview.widget.CardView
+                    android:onClick="gotoLearningMaterials"
+                    app:cardBackgroundColor="@color/activeColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_gravity="fill"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="5dp"
+                    android:layout_margin="10dp">
 
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_knowledge_book_education_learning_books_svgrepo_com"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Learning Materials"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="16dp"/>
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical|center_horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_books"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Learning PDF"
+                            android:textAlignment="center"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="16dp"/>
 
 
-                </LinearLayout>
+                    </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:onClick="gotoStudentProgress"
-                app:cardBackgroundColor="@color/activeColor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="1"
-                android:layout_column="1"
-                android:layout_gravity="fill"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                app:cardElevation="10dp"
-                app:cardCornerRadius="5dp"
-                android:layout_margin="10dp">
-
-                <LinearLayout
+                <androidx.cardview.widget.CardView
+                    android:visibility="invisible"
+                    android:onClick="gotoStudentProgress"
+                    app:cardBackgroundColor="@color/activeColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:layout_gravity="fill"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="5dp"
+                    android:layout_margin="10dp">
 
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_profit"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Student Progress"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="16dp"/>
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical|center_horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_profit"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Student Progress"
+                            android:textAlignment="center"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="16dp"/>
 
 
-                </LinearLayout>
+                    </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:onClick="gotoStudentAssessment"
-                app:cardBackgroundColor="@color/activeColor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="1"
-                android:layout_column="0"
-                android:layout_gravity="fill"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                app:cardElevation="10dp"
-                app:cardCornerRadius="5dp"
-                android:layout_margin="10dp">
-
-                <LinearLayout
+                <androidx.cardview.widget.CardView
+                    android:onClick="gotoStudentAssessment"
+                    app:cardBackgroundColor="@color/activeColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_gravity="fill"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="5dp"
+                    android:layout_margin="10dp">
 
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_test"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Student Assessment"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="16dp"/>
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical|center_horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_test"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Student Assessment"
+                            android:textAlignment="center"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="16dp"/>
 
 
-                </LinearLayout>
+                    </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
 
 
-        </GridLayout>
+            </GridLayout>
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
 
     <RelativeLayout
         android:layout_width="300dp"

@@ -1,4 +1,4 @@
-package com.example.elearningapplication.View;
+package com.example.elearningapplication.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.elearningapplication.ActivityPDF.ActivityPDFViewQ3;
 import com.example.elearningapplication.ItemClickListener;
 import com.example.elearningapplication.Model.PDFModel;
+import com.example.elearningapplication.Quarter.QuarterThree;
 import com.example.elearningapplication.R;
-import com.example.elearningapplication.RecyclerAdapterQ3;
+import com.example.elearningapplication.Adapter.RecyclerAdapterQ3;
 
 import java.util.ArrayList;
 

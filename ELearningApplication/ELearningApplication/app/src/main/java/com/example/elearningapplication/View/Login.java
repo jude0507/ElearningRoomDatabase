@@ -1,33 +1,25 @@
 package com.example.elearningapplication.View;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.elearningapplication.Model.UsersModel;
+import com.example.elearningapplication.Quarter.QuarterOne;
 import com.example.elearningapplication.R;
 import com.example.elearningapplication.ShowPassword;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -43,6 +35,8 @@ public class Login extends AppCompatActivity {
     static final String MY_NAME = "name";
     static final String MY_USERNAME = "username";
     static final String MY_PASSWORD = "password";
+
+    public static String PREFS_Name = "MyFilePreps";
 
     public static String Email_Login, Password_Login, Name;
     //public static String uname, upass, name;
@@ -93,69 +87,113 @@ public class Login extends AppCompatActivity {
                          Password_Login = documentSnapshot.getString("password");
                          Name = documentSnapshot.getString("name");
 
-                        firebaseAuth.signInWithEmailAndPassword(Email_Login, Password_Login)
-                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<AuthResult> task) {
-                                        if (task.isSuccessful()){
-
-                                            if (firebaseAuth.getCurrentUser().isEmailVerified()){
-                                                if (emailLogin.getText().toString().equals(Email_Login) && passwordLogin.getText().toString().equals(Password_Login)){
-                                                    VerifiedStatus();
-                                                    progressDialog.dismiss();
-                                                    Toast.makeText(Login.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                                                    collectionReference.whereEqualTo("username", Email_Login).get()
-                                                                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                                                                        @Override
-                                                                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                                                                            outputname = "";
-                                                                            for (QueryDocumentSnapshot documentSnapshot1 : queryDocumentSnapshots){
-                                                                                UsersModel usersModel = documentSnapshot1.toObject(UsersModel.class);
-                                                                                usersModel.setMyid(documentSnapshot1.getId());
-                                                                                String set_uname = usersModel.getUsername();
-                                                                                String set_name = usersModel.getName();
-
-                                                                                outputname += set_name;
-                                                                            }
-
-                                                                            AlertDialog.Builder myBuilder = new AlertDialog.Builder(Login.this);
-                                                                            LayoutInflater myinflater = getLayoutInflater();
-                                                                            View mydialogView = myinflater.inflate(R.layout.greetingdialog,null);
-                                                                            myBuilder.setCancelable(false);
-                                                                            myBuilder.setView(mydialogView);
-
-                                                                            ImageView imageViewOk = mydialogView.findViewById(R.id.close_dialog);
-                                                                            TextView txtshowname = mydialogView.findViewById(R.id.displayUsername);
-
-                                                                            final AlertDialog alertDialogmyPicture = myBuilder.create();
-                                                                            alertDialogmyPicture.show();
-
-                                                                            txtshowname.setText(outputname);
-
-                                                                            imageViewOk.setOnClickListener(new View.OnClickListener() {
-                                                                                @Override
-                                                                                public void onClick(View v) {
-                                                                                    alertDialogmyPicture.dismiss();
-                                                                                    startActivity(new Intent(Login.this, QuarterOne.class));
-                                                                                }
-                                                                            });
-
-                                                                        }
-                                                                    });
-//                                                    startActivity(new Intent(Login.this, QuarterOne.class));
-                                                }else {
-                                                    progressDialog.dismiss();
-                                                    Toast.makeText(Login.this, "Credential not match", Toast.LENGTH_SHORT).show();
-                                                }
-                                            }else{
-                                                progressDialog.dismiss();
-                                                Toast.makeText(Login.this, "Please verify your email", Toast.LENGTH_SHORT).show();
+                        if (emailLogin.getText().toString().equals(Email_Login) && passwordLogin.getText().toString().equals(Password_Login)){
+                            progressDialog.dismiss();
+                            Toast.makeText(Login.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                            collectionReference.whereEqualTo("username", Email_Login).get()
+                                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                            outputname = "";
+                                            for (QueryDocumentSnapshot documentSnapshot1 : queryDocumentSnapshots){
+                                                UsersModel usersModel = documentSnapshot1.toObject(UsersModel.class);
+                                                usersModel.setMyid(documentSnapshot1.getId());
+                                                String set_uname = usersModel.getUsername();
+                                                String set_name = usersModel.getName();
+                                                outputname += set_name;
                                             }
+                                            AlertDialog.Builder myBuilder = new AlertDialog.Builder(Login.this);
+                                            LayoutInflater myinflater = getLayoutInflater();
+                                            View mydialogView = myinflater.inflate(R.layout.greetingdialog,null);
+                                            myBuilder.setCancelable(false);
+                                            myBuilder.setView(mydialogView);
 
+                                            ImageView imageViewOk = mydialogView.findViewById(R.id.close_dialog);
+                                            TextView txtshowname = mydialogView.findViewById(R.id.displayUsername);
+
+                                            final AlertDialog alertDialogmyPicture = myBuilder.create();
+                                            alertDialogmyPicture.show();
+
+                                            txtshowname.setText(outputname);
+
+                                            imageViewOk.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    alertDialogmyPicture.dismiss();
+                                                    LoginPref();
+                                                    startActivity(new Intent(Login.this, QuarterOne.class));
+                                                }
+                                            });
                                         }
+                                    });
 
-                                    }
-                                });
+                        }
+
+
+
+//                        firebaseAuth.signInWithEmailAndPassword(Email_Login, Password_Login)
+//                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                                    @Override
+//                                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                                        if (task.isSuccessful()){
+//
+//                                            if (firebaseAuth.getCurrentUser().isEmailVerified()){
+//                                                if (emailLogin.getText().toString().equals(Email_Login) && passwordLogin.getText().toString().equals(Password_Login)){
+//                                                    VerifiedStatus();
+//                                                    progressDialog.dismiss();
+//                                                    Toast.makeText(Login.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+//                                                    collectionReference.whereEqualTo("username", Email_Login).get()
+//                                                                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//                                                                        @Override
+//                                                                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                                                                            outputname = "";
+//                                                                            for (QueryDocumentSnapshot documentSnapshot1 : queryDocumentSnapshots){
+//                                                                                UsersModel usersModel = documentSnapshot1.toObject(UsersModel.class);
+//                                                                                usersModel.setMyid(documentSnapshot1.getId());
+//                                                                                String set_uname = usersModel.getUsername();
+//                                                                                String set_name = usersModel.getName();
+//
+//                                                                                outputname += set_name;
+//                                                                            }
+//
+//                                                                            AlertDialog.Builder myBuilder = new AlertDialog.Builder(Login.this);
+//                                                                            LayoutInflater myinflater = getLayoutInflater();
+//                                                                            View mydialogView = myinflater.inflate(R.layout.greetingdialog,null);
+//                                                                            myBuilder.setCancelable(false);
+//                                                                            myBuilder.setView(mydialogView);
+//
+//                                                                            ImageView imageViewOk = mydialogView.findViewById(R.id.close_dialog);
+//                                                                            TextView txtshowname = mydialogView.findViewById(R.id.displayUsername);
+//
+//                                                                            final AlertDialog alertDialogmyPicture = myBuilder.create();
+//                                                                            alertDialogmyPicture.show();
+//
+//                                                                            txtshowname.setText(outputname);
+//
+//                                                                            imageViewOk.setOnClickListener(new View.OnClickListener() {
+//                                                                                @Override
+//                                                                                public void onClick(View v) {
+//                                                                                    alertDialogmyPicture.dismiss();
+//                                                                                    startActivity(new Intent(Login.this, QuarterOne.class));
+//                                                                                }
+//                                                                            });
+//
+//                                                                        }
+//                                                                    });
+////                                                    startActivity(new Intent(Login.this, QuarterOne.class));
+//                                                }else {
+//                                                    progressDialog.dismiss();
+//                                                    Toast.makeText(Login.this, "Credential not match", Toast.LENGTH_SHORT).show();
+//                                                }
+//                                            }else{
+//                                                progressDialog.dismiss();
+//                                                Toast.makeText(Login.this, "Please verify your email", Toast.LENGTH_SHORT).show();
+//                                            }
+//
+//                                        }
+//
+//                                    }
+//                                });
                     }else{
                         progressDialog.dismiss();
                         Toast.makeText(Login.this, "You don't have an account", Toast.LENGTH_LONG).show();
@@ -184,5 +222,14 @@ public class Login extends AppCompatActivity {
         String Verified = "Verified";
         DocumentReference updateReference = db.collection("ElearningUsers").document(emailLogin.getText().toString());
         updateReference.update("email_status", Verified);
+    }
+
+    private void LoginPref(){
+        SharedPreferences sharedPreferences = getSharedPreferences(Login.PREFS_Name, 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putBoolean("hasLoggedIn", true);
+        editor.commit();
+
     }
 }

@@ -10,14 +10,13 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.elearningapplication.DisplayName;
-import com.example.elearningapplication.Model.UsersModel;
+import com.example.elearningapplication.Quarter.QuarterFour;
+import com.example.elearningapplication.Quarter.QuarterOne;
+import com.example.elearningapplication.Quarter.QuarterTwo;
 import com.example.elearningapplication.QuizActivity;
 import com.example.elearningapplication.R;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

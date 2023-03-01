@@ -1,13 +1,12 @@
-package com.example.elearningapplication.View;
+package com.example.elearningapplication.Quarter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -16,14 +15,15 @@ import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 import com.example.elearningapplication.DisplayName;
-import com.example.elearningapplication.Model.UsersModel;
 import com.example.elearningapplication.R;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.example.elearningapplication.View.LearningMaterials;
+import com.example.elearningapplication.View.Login;
+import com.example.elearningapplication.View.Multimedia;
+import com.example.elearningapplication.View.Profile;
+import com.example.elearningapplication.View.StudentAssessment;
+import com.example.elearningapplication.View.StudentProgress;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -33,6 +33,9 @@ public class QuarterOne extends AppCompatActivity {
     DrawerLayout drawerLayout;
     TextView nameofuser;
     CircleImageView circleImageViewProfile;
+    static SharedPreferences sharedPreferences;
+    static SharedPreferences.Editor editor;
+
 
     VideoView videoView;
 
@@ -44,19 +47,24 @@ public class QuarterOne extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quarter_one);
 
+        sharedPreferences = getSharedPreferences(Login.PREFS_Name, 0);
+        editor = sharedPreferences.edit();
+
         drawerLayout = findViewById(R.id.mydrawer_layout);
         nameofuser = findViewById(R.id.nameofuser);
         circleImageViewProfile = findViewById(R.id.profile);
         videoView = (VideoView) findViewById(R.id.videoview);
+
 
         videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.samplevideo));
         videoView.start();
 
         showUserInformation();
 
+
     }
 
-    public void showUserInformation(){
+    public void showUserInformation() {
 
         DisplayName.RetrieveName(this, "ELearningUsers", "username", Login.Email_Login, nameofuser);
         Glide.with(getApplicationContext()).load(Profile.outputimageurl).placeholder(R.drawable.ic_user_circle).into(circleImageViewProfile);
@@ -84,7 +92,7 @@ public class QuarterOne extends AppCompatActivity {
     }
 
 
-    public void clickmenu(View view){
+    public void clickmenu(View view) {
         openDrawer(drawerLayout);
     }
 
@@ -92,61 +100,68 @@ public class QuarterOne extends AppCompatActivity {
         drawerLayout.openDrawer(GravityCompat.START);
     }
 
-    public void clicklogo(View view){
+    public void clicklogo(View view) {
         closeDrawer(drawerLayout);
     }
 
     public static void closeDrawer(DrawerLayout drawerLayout) {
 
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
     }
 
-    public void clickquarterone(View view){
+    public void clickquarterone(View view) {
         recreate();
     }
 
-    public void clickquartertwo(View view){
+    public void clickquartertwo(View view) {
         redirectActivity(this, QuarterTwo.class);
     }
 
-    public void clickquarterthree(View view){
+    public void clickquarterthree(View view) {
         redirectActivity(this, QuarterThree.class);
     }
 
-    public void clickquarterfour(View view){
+    public void clickquarterfour(View view) {
         redirectActivity(this, QuarterFour.class);
     }
 
-    public void clicklogout(View view){
+    public void clicklogout(View view) {
         logout(this);
     }
 
     public static void logout(Activity activity) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setTitle("Logout");
-        builder.setMessage("Do you want to logout ?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                activity.finishAffinity();
-                System.exit(0);
-            }
-        });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
 
-        builder.show();
+        editor.clear();
+        editor.commit();
+        activity.finishAffinity();
+
+        System.exit(0);
+
+//        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+//        builder.setTitle("Logout");
+//        builder.setMessage("Do you want to logout ?");
+//        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                activity.finishAffinity();
+//                System.exit(0);
+//            }
+//        });
+//        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        builder.show();
     }
 
     public static void redirectActivity(Activity activity, Class myclass) {
 
-        Intent intent = new Intent(activity,myclass);
+        Intent intent = new Intent(activity, myclass);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
 
@@ -157,6 +172,7 @@ public class QuarterOne extends AppCompatActivity {
 
         closeDrawer(drawerLayout);
     }
+
     public void gotoMultimedia(View view) {
         startActivity(new Intent(QuarterOne.this, Multimedia.class));
 
@@ -174,29 +190,33 @@ public class QuarterOne extends AppCompatActivity {
         startActivity(new Intent(QuarterOne.this, StudentProgress.class));
     }
 
-    public void clickprofile(View view){
+    public void clickprofile(View view) {
         startActivity(new Intent(QuarterOne.this, Profile.class));
     }
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Logout");
-        builder.setMessage("Do you want to logout ?");
-        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(QuarterOne.this, Login.class));
-                finishAffinity();
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-
-        builder.show();
+        //startActivity(new Intent(QuarterOne.this, Login.class));
+        finishAffinity();
+        System.exit(0);
     }
 }
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("Logout");
+//        builder.setMessage("Do you want to logout ?");
+//        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                startActivity(new Intent(QuarterOne.this, Login.class));
+//                finishAffinity();
+//            }
+//        });
+//        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        builder.show();
+//    }
