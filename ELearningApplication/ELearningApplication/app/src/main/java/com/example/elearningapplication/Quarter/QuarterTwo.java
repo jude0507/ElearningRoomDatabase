@@ -12,8 +12,10 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
+
 import com.example.elearningapplication.DisplayName;
 import com.example.elearningapplication.R;
+import com.example.elearningapplication.StartActivityClass;
 import com.example.elearningapplication.View.Login;
 import com.example.elearningapplication.View.Profile;
 import com.example.elearningapplication.RecyclerView.RecyclerViewQ2;
@@ -117,4 +119,7 @@ public class QuarterTwo extends AppCompatActivity {
         startActivity(new Intent(QuarterTwo.this, RecyclerViewQ2.class));
     }
 
+    public void GoToActivity(View view) {
+        startActivity(new Intent(QuarterTwo.this, StartActivityClass.class));
+    }
 }
