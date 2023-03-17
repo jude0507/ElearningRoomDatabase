@@ -44,8 +44,12 @@ public class QuarterThree extends AppCompatActivity {
 
         videoView = (VideoView) findViewById(R.id.videoview);
 
+
         videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.samplevideo));
         videoView.start();
+
+        String fetchUserName = QuarterOne.sharedPreferences.getString("Username","");
+        nameofuser.setText(fetchUserName);
 
         DisplayName.RetrieveName(this, "ELearningUsers", "username", Login.Email_Login, nameofuser);
         Glide.with(getApplicationContext()).load(Profile.outputimageurl).placeholder(R.drawable.ic_user_circle).into(circleImageViewProfile);

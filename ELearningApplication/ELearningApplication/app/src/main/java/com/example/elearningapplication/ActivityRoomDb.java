@@ -20,7 +20,7 @@ public abstract class ActivityRoomDb extends RoomDatabase {
 
         if (INSTANCE == null){
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            ActivityRoomDb.class, "activity_question_table")
+                            ActivityRoomDb.class, "activity_week1_questions")
                     .fallbackToDestructiveMigration()
                     .addCallback(RoomDBCallback)
                     .build();

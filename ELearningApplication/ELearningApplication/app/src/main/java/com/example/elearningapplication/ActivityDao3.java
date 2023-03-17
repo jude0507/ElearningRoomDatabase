@@ -8,12 +8,12 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-public interface ActivityDao {
+public interface ActivityDao3 {
 
-    @Query("SELECT * FROM activity_week1_questions")
-    LiveData<List<ActivityQuestions>> getAllQuestions();
+    @Query("SELECT * FROM activity_week3_questions")
+    LiveData<List<ActivityQuestions3>> getAllQuestions();
 
     @Insert
-    void insert(ActivityQuestions activityQuestions);
+    void insert(ActivityQuestions3 activityQuestions);
 
 }

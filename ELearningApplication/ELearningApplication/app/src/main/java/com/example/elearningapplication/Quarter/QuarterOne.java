@@ -47,7 +47,7 @@ public class QuarterOne extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quarter_one);
 
-        sharedPreferences = getSharedPreferences(Login.PREFS_Name, 0);
+        sharedPreferences = getApplicationContext().getSharedPreferences(Login.PREFS_Name, 0);
         editor = sharedPreferences.edit();
 
         drawerLayout = findViewById(R.id.mydrawer_layout);
@@ -55,6 +55,8 @@ public class QuarterOne extends AppCompatActivity {
         circleImageViewProfile = findViewById(R.id.profile);
         videoView = (VideoView) findViewById(R.id.videoview);
 
+        String fetchUserName = sharedPreferences.getString("Username","");
+        nameofuser.setText(fetchUserName);
 
         videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.samplevideo));
         videoView.start();

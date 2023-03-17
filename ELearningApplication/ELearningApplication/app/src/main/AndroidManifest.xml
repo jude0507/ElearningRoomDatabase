@@ -20,11 +20,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ActivityClass7"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityClass6"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityClass5"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityClass4"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityClass3"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityClass2"
+            android:exported="false" />
         <activity
             android:name=".ActivityClass"
             android:exported="false" />
-
         <activity
             android:name=".StartActivityClass"
             android:exported="false" />

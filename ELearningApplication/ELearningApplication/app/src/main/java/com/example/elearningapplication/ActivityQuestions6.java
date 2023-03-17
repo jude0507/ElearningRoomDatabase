@@ -4,9 +4,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "activity_week1_questions")
+@Entity(tableName = "activity_week6_questions")
 
-public class ActivityQuestions {
+public class ActivityQuestions6 {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
@@ -25,7 +25,7 @@ public class ActivityQuestions {
     @ColumnInfo(name = "answer")
     private int answer;
 
-    public ActivityQuestions(String questions, String option1, String option2, String option3, String option4, int answer) {
+    public ActivityQuestions6(String questions, String option1, String option2, String option3, String option4, int answer) {
         this.questions = questions;
         this.option1 = option1;
         this.option2 = option2;
@@ -34,7 +34,7 @@ public class ActivityQuestions {
         this.answer = answer;
     }
 
-    public ActivityQuestions() {
+    public ActivityQuestions6() {
         this.id = id;
         this.questions = questions;
         this.option1 = option1;

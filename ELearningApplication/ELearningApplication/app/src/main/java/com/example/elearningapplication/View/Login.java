@@ -229,6 +229,9 @@ public class Login extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         editor.putBoolean("hasLoggedIn", true);
+        editor.putString("Username", Email_Login);
+        editor.putString("Password", Password_Login);
+        editor.putString("Name", Name);
         editor.commit();
 
     }

@@ -1,5 +1,10 @@
 package com.example.elearningapplication;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -17,20 +22,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
-import com.example.elearningapplication.Quarter.QuarterOne;
-import com.example.elearningapplication.View.Login;
-
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-public class ActivityClass extends AppCompatActivity {
+public class ActivityClass3 extends AppCompatActivity {
 
     TextView txtQuestion;
     TextView textViewScore,textViewQuestionCount,textViewCountDownTimer;
@@ -39,12 +34,12 @@ public class ActivityClass extends AppCompatActivity {
     Button buttonNext;
     boolean answered = false;
 
-    List<ActivityQuestions> actQueList;
-    ActivityQuestions currentQ;
+    List<ActivityQuestions3> actQueList;
+    ActivityQuestions3 currentQ;
 
     private int questionCounter=0,questionTotalCount;
 
-    private ActivityViewModel activityViewModel;
+    private ActivityViewModel3 activityViewModel;
 
     private ColorStateList textColorofButtons;
 
@@ -71,39 +66,38 @@ public class ActivityClass extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_class);
+        setContentView(R.layout.activity_class3);
 
-        //RegVariable();
+        txtQuestion = findViewById(R.id.displayQuestionscl3);
+        textViewScore = findViewById(R.id.view_scorecl3);
+        textViewQuestionCount = findViewById(R.id.number_of_questioncl3);
+        textViewCountDownTimer = findViewById(R.id.timercl3);
 
-        txtQuestion = findViewById(R.id.displayQuestions);
-        textViewScore = findViewById(R.id.view_score);
-        textViewQuestionCount = findViewById(R.id.number_of_question);
-        textViewCountDownTimer = findViewById(R.id.timer);
+        rbGroup = findViewById(R.id.radiogrpcl3);
+        rb1 = findViewById(R.id.opt1cl3);
+        rb2 = findViewById(R.id.opt2cl3);
+        rb3 = findViewById(R.id.opt3cl3);
+        rb4 = findViewById(R.id.opt4cl3);
 
-        rbGroup = findViewById(R.id.radiogrp);
-        rb1 = findViewById(R.id.opt1);
-        rb2 = findViewById(R.id.opt2);
-        rb3 = findViewById(R.id.opt3);
-        rb4 = findViewById(R.id.opt4);
-
-        buttonNext = findViewById(R.id.buttonConfirm);
+        buttonNext = findViewById(R.id.buttonConfirmcl3);
 
         //wrongDialog =  new WrongDialog(this);
         //correctDialog = new CorrectDialog(this);
         timerDialog =  new TimerDialog(this);
         playAudioForAnswers = new PlayAudioForAnswers(this);
 
-        activityViewModel = ViewModelProviders.of(this).get(ActivityViewModel.class);
-        activityViewModel.getmAllQuestions().observe(this, new Observer<List<ActivityQuestions>>() {
+        activityViewModel = ViewModelProviders.of(this).get(ActivityViewModel3.class);
+        activityViewModel.getmAllQuestions().observe(this, new Observer<List<ActivityQuestions3>>() {
             @Override
-            public void onChanged(List<ActivityQuestions> activityQuestions) {
-                Toast.makeText(ActivityClass.this, "Let's Start", Toast.LENGTH_SHORT).show();
+            public void onChanged(List<ActivityQuestions3> activityQuestions) {
+                Toast.makeText(ActivityClass3.this, "Let's Start", Toast.LENGTH_SHORT).show();
                 getContent(activityQuestions);
             }
         });
 
     }
-    private void getContent(List<ActivityQuestions> questionsList) {
+
+    private void getContent(List<ActivityQuestions3> questionsList) {
 
         actQueList = questionsList;
         start();
@@ -114,10 +108,10 @@ public class ActivityClass extends AppCompatActivity {
     public void setQuestions(){
 
         rbGroup.clearCheck();
-        rb1.setTextColor(R.color.activeColor);
-        rb2.setTextColor(R.color.activeColor);
-        rb3.setTextColor(R.color.activeColor);
-        rb4.setTextColor(R.color.activeColor);
+        rb1.setTextColor(Color.BLACK);
+        rb2.setTextColor(Color.BLACK);
+        rb3.setTextColor(Color.BLACK);
+        rb4.setTextColor(Color.BLACK);
 
         questionTotalCount = actQueList.size();
         //Collections.shuffle(actQueList);
@@ -227,12 +221,12 @@ public class ActivityClass extends AppCompatActivity {
                 if (!answered){
 
                     if (rb1.isChecked() || rb2.isChecked() || rb3.isChecked() || rb4.isChecked()){
-                        
+
                         CheckProcess();
 
                     }else {
 
-                        Toast.makeText(ActivityClass.this, "Please Select Answer", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ActivityClass3.this, "Please Select Answer", Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -294,8 +288,8 @@ public class ActivityClass extends AppCompatActivity {
                     wrongAns++;
 
 
-//                    final String correctAnswer = (String) rb1.getText();
-//                    wrongDialog.WrongDialog(correctAnswer,this);
+                    //final String correctAnswer = (String) rb1.getText();
+                    //wrongDialog.WrongDialog(correctAnswer,this);
 
                     FLAG = 2;
                     playAudioForAnswers.setAudioforAnswers(FLAG);
@@ -306,6 +300,7 @@ public class ActivityClass extends AppCompatActivity {
                             setQuestions();
                         }
                     }, 2000);
+
 
                 }
                 break;
@@ -325,11 +320,10 @@ public class ActivityClass extends AppCompatActivity {
                     score +=10;  // score = score + 10
                     textViewScore.setText("Score: " + String.valueOf(score));
 
-                    //correctDialog.correctDialog(score,this);
+                    // correctDialog.correctDialog(score,this);
 
                     FLAG = 1;
                     playAudioForAnswers.setAudioforAnswers(FLAG);
-
 
                     handler.postDelayed(new Runnable() {
                         @Override
@@ -337,6 +331,7 @@ public class ActivityClass extends AppCompatActivity {
                             setQuestions();
                         }
                     }, 2000);
+
 
                 } else {
 
@@ -346,7 +341,7 @@ public class ActivityClass extends AppCompatActivity {
 
 
                     final String correctAnswer = (String) rb2.getText();
-                    wrongDialog.WrongDialog(correctAnswer,this);
+                    //wrongDialog.WrongDialog(correctAnswer,this);
 
                     FLAG = 2;
                     playAudioForAnswers.setAudioforAnswers(FLAG);
@@ -378,7 +373,7 @@ public class ActivityClass extends AppCompatActivity {
                     score +=10;  // score = score + 10
                     textViewScore.setText("Score: " + String.valueOf(score));
 
-                    correctDialog.correctDialog(score,this);
+                    //correctDialog.correctDialog(score,this);
 
                     FLAG = 1;
                     playAudioForAnswers.setAudioforAnswers(FLAG);
@@ -391,14 +386,15 @@ public class ActivityClass extends AppCompatActivity {
                     }, 2000);
 
 
+
                 } else {
 
                     changetoIncorrectColor(rbselected);
 
                     wrongAns++;
 
-//                    final String correctAnswer = (String) rb3.getText();
-//                    wrongDialog.WrongDialog(correctAnswer,this);
+                    final String correctAnswer = (String) rb3.getText();
+                    //wrongDialog.WrongDialog(correctAnswer,this);
 
                     FLAG = 2;
                     playAudioForAnswers.setAudioforAnswers(FLAG);
@@ -438,14 +434,15 @@ public class ActivityClass extends AppCompatActivity {
                         }
                     }, 2000);
 
+
                 } else {
 
                     changetoIncorrectColor(rbselected);
 
                     wrongAns++;
 
-//                    final String correctAnswer = (String) rb4.getText();
-//                    wrongDialog.WrongDialog(correctAnswer,this);
+                    final String correctAnswer = (String) rb4.getText();
+                    //wrongDialog.WrongDialog(correctAnswer,this);
 
                     FLAG = 2;
                     playAudioForAnswers.setAudioforAnswers(FLAG);
@@ -545,7 +542,7 @@ public class ActivityClass extends AppCompatActivity {
 //    }
 
     private void DisplayDialogResult(){
-        AlertDialog.Builder myBuilder = new AlertDialog.Builder(ActivityClass.this);
+        AlertDialog.Builder myBuilder = new AlertDialog.Builder(ActivityClass3.this);
         LayoutInflater myinflater = getLayoutInflater();
         View mydialogView = myinflater.inflate(R.layout.activity_result,null);
         myBuilder.setCancelable(false);
@@ -567,8 +564,7 @@ public class ActivityClass extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 alertDialogmyPicture.dismiss();
-                startActivity(new Intent(ActivityClass.this, StartActivityClass.class));
-                finishAffinity();
+                startActivity(new Intent(ActivityClass3.this, StartActivityClass.class));
             }
         });
 
@@ -592,6 +588,5 @@ public class ActivityClass extends AppCompatActivity {
         Log.i("DATATA","onStop in ActivityClass");
         finish();
     }
-
 
 }

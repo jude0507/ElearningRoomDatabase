@@ -48,6 +48,9 @@ public class QuarterTwo extends AppCompatActivity {
         circleImageViewProfile = findViewById(R.id.profile);
         videoView = (VideoView) findViewById(R.id.videoview);
 
+        String fetchUserName = QuarterOne.sharedPreferences.getString("Username","");
+        nameofuser.setText(fetchUserName);
+
         videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.samplevideo));
         videoView.start();
 

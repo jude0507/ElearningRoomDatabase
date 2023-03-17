@@ -20,5 +20,5 @@
     <color name="transparent">#0DD58936</color>
     <color name="grayColor">#AAAAAA</color>
     <color name="activeColor">#773344</color>
-
+    <color name="red">#FF0303</color>
 </resources>

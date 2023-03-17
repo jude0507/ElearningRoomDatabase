@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ActivityClass2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/back_layoutcl2"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:background="@color/activeColor"
+            >
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginVertical="25dp"
+                android:src="@drawable/ic_previousarrow" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="18dp"
+                android:text="Activity"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/number_of_questioncl2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="Questions: 1/x"
+                    android:textColor="@color/activeColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/view_scorecl2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Score: 0"
+                    android:layout_marginStart="15dp"
+                    android:textColor="@color/activeColor"
+                    android:textSize="18sp"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/timercl2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:textAlignment="textEnd"
+                android:text="00:30"
+                android:textColor="@color/activeColor"
+                android:textSize="30sp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/displayQuestionscl2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:text="THIS IS THE QUESTIONS"
+            android:textAlignment="center"
+            android:textColor="@color/activeColor"
+            android:textSize="22sp" />
+
+        <RadioGroup
+            android:id="@+id/radiogrpcl2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:layout_marginStart="10dp">
+
+            <RadioButton
+                android:id="@+id/opt1cl2"
+                android:layout_width="wrap_content"
+                android:textSize="22sp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/activeColor"
+                android:text="Option 1"/>
+
+            <RadioButton
+                android:id="@+id/opt2cl2"
+                android:layout_width="wrap_content"
+                android:textSize="22sp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/activeColor"
+                android:text="Option 2"/>
+
+            <RadioButton
+                android:id="@+id/opt3cl2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textColor="@color/activeColor"
+                android:text="Option 3"/>
+
+            <RadioButton
+                android:id="@+id/opt4cl2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textColor="@color/activeColor"
+                android:text="Option 4"/>
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/buttonConfirmcl2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:text="CONFIRM"
+            android:background="@color/activeColor"
+            android:layout_marginTop="25dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
